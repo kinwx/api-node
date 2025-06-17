@@ -1,5 +1,5 @@
-import { ApiResponse } from "@src/helpers/ApiResponse";
-import AddressService from "@src/services/AddressService/AddressService";
+import { ApiResponse } from "../../helpers/ApiResponse/index.js";
+import AddressService from "../../services/AddressService/AddressService.js";
 import { Request, Response } from "express";
 
 const errorMessages = {

@@ -1,4 +1,4 @@
-import OrderRepository from "@src/repositories/OrderRepository/OrderRepository";
+import OrderRepository from "../../repositories/OrderRepository/OrderRepository.js";
 import { Request } from "express";
 
 export default {

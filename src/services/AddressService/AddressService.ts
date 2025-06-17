@@ -1,4 +1,4 @@
-import AddressRepository from "@src/repositories/AddressRepository/AddressRepository";
+import AddressRepository from "../../repositories/AddressRepository/AddressRepository.js";
 import { Request } from "express";
 
 export default {

@@ -1,4 +1,4 @@
-import CategoryRepository from "@src/repositories/CategoryRepository/CategoryRepository";
+import CategoryRepository from "../../repositories/CategoryRepository/CategoryRepository.js";
 import { Request } from "express";
 
 export default {

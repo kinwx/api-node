@@ -1,4 +1,4 @@
-import { CustomRepository } from "@src/helpers/CustomRepository";
-import Client from "@src/models/Client/client";
+import { CustomRepository } from "../../helpers/CustomRepository/index.js";
+import Client from "../../models/Client/client.js";
 
 export default new CustomRepository(Client);

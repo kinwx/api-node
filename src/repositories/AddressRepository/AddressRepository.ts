@@ -1,4 +1,4 @@
-import { CustomRepository } from "@src/helpers/CustomRepository";
-import Address from "@src/models/Address/address";
+import { CustomRepository } from "../../helpers/CustomRepository/index.js";
+import Address from "../../models/Address/address.js";
 
-export default new CustomRepository(Address); 
+export default new CustomRepository(Address);

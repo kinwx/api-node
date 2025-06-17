@@ -1,4 +1,4 @@
-import ClientRepository from "@src/repositories/ClientRepository/ClientRepository";
+import ClientRepository from "../../repositories/ClientRepository/ClientRepository.js";
 import { Request } from "express";
 
 export default {

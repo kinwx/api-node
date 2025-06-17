@@ -1,5 +1,5 @@
-import { ApiResponse } from "@src/helpers/ApiResponse";
-import ClientService from "@src/services/ClientService/ClientService";
+import { ApiResponse } from "../../helpers/ApiResponse/index.js";
+import ClientService from "../../services/ClientService/ClientService.js";
 import { Request, Response } from "express";
 
 const errorMessages = {

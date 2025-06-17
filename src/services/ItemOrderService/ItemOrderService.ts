@@ -1,4 +1,4 @@
-import ItemOrderRepository from "@src/repositories/ItemOrderRepository/ItemOrderRepository";
+import ItemOrderRepository from "../../repositories/ItemOrderRepository/ItemOrderRepository.js";
 import { Request } from "express";
 
 export default {

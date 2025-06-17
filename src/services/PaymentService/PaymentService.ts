@@ -1,4 +1,4 @@
-import PaymentRepository from "@src/repositories/PaymentRepository/PaymentRepository";
+import PaymentRepository from "../../repositories/PaymentRepository/PaymentRepository.js";
 import { Request } from "express";
 
 export default {

@@ -1,4 +1,4 @@
-import ProductRepository from "@src/repositories/ProductRepository/ProductRepository";
+import ProductRepository from "../../repositories/ProductRepository/ProductRepository.js";
 import { Request } from "express";
 
 export default {

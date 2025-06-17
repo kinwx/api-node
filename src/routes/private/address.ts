@@ -1,4 +1,4 @@
-import AddressController from "@src/controllers/AddressController/AddressController";
+import AddressController from "../../controllers/AddressController/AddressController.js";
 import { Router } from "express";
 
 const router = Router();

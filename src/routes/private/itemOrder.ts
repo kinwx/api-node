@@ -1,4 +1,4 @@
-import ItemOrderController from "@src/controllers/ItemOrderController/ItemOrderController";
+import ItemOrderController from "../../controllers/ItemOrderController/ItemOrderController.js";
 import { Router } from "express";
 
 const router = Router();

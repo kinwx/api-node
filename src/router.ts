@@ -1,13 +1,13 @@
-import { Router } from "express";
-import ClientRoutes from "@src/routes/client";
-import AddressRoutes from "@src/routes/address";
-import OrderRoutes from "@src/routes/order";
-import CategoryRoutes from "@src/routes/category";
-import ProductRoutes from "@src/routes/product";
-import ItemOrderRoutes from "@src/routes/itemOrder";
-import PaymentRoutes from "@src/routes/payment";
+import express from "express";
+import ClientRoutes from "./routes/private/client.js";
+import AddressRoutes from "./routes/private/address.js";
+import OrderRoutes from "./routes/private/order.js";
+import CategoryRoutes from "./routes/private/category.js";
+import ProductRoutes from "./routes/private/product.js";
+import ItemOrderRoutes from "./routes/private/itemOrder.js";
+import PaymentRoutes from "./routes/private/payment.js";
 
-const router = Router();
+const router = express.Router();
 
 router.use("/clients", ClientRoutes);
 router.use("/adresses", AddressRoutes);
