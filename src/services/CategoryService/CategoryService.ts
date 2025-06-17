@@ -1,49 +1,46 @@
 import CategoryRepository from "@src/repositories/CategoryRepository/CategoryRepository";
-import { Request, Response } from "express";
+import { Request } from "express";
 
 export default {
-    findAll() {
-        const categories = CategoryRepository.findAll();
+  findAll() {
+    const categories = CategoryRepository.findAll();
 
-        return categories;
-    },
-    findCategoryById(req: Request, res: Response) {
-        const { id } = req.params;
+    return categories;
+  },
+  findCategoryById(req: Request) {
+    const { id } = req.params;
 
-        const category = CategoryRepository.findById(id);
-        if (!category)
-            throw new Error();
+    const category = CategoryRepository.findById(id);
+    if (!category) throw new Error();
 
-        return category;
-    },
-    async createCategory(req: Request, res: Response) {
-        const { name } = req.body;
+    return category;
+  },
+  async createCategory(req: Request) {
+    const { name } = req.body;
 
-        const category = CategoryRepository.create({ name });
+    const category = CategoryRepository.create({ name });
 
-        return category;
-    },
-    async updateCategory(req: Request, res: Response) {
-        const { id } = req.params;
-        const { name } = req.body;
+    return category;
+  },
+  async updateCategory(req: Request) {
+    const { id } = req.params;
+    const { name } = req.body;
 
-        const category = await CategoryRepository.findById(id);
-        if (!category)
-            throw new Error();
+    const category = await CategoryRepository.findById(id);
+    if (!category) throw new Error();
 
-        await category.update({ name });
+    await category.update({ name });
 
-        return category;
-    },
-    async deleteCategory(req: Request, res: Response) {
-        const { id } = req.params;
+    return category;
+  },
+  async deleteCategory(req: Request) {
+    const { id } = req.params;
 
-        const category = await CategoryRepository.findById(id);
-        if (!category)
-            throw new Error();
+    const category = await CategoryRepository.findById(id);
+    if (!category) throw new Error();
 
-        await category.destroy();
+    await category.destroy();
 
-        return true;
-    }
+    return true;
+  },
 };

@@ -1,49 +1,51 @@
 import ItemOrderRepository from "@src/repositories/ItemOrderRepository/ItemOrderRepository";
-import { Request, Response } from "express";
+import { Request } from "express";
 
 export default {
-    findAll() {
-        const itemsOrder = ItemOrderRepository.findAll();
+  findAll() {
+    const itemsOrder = ItemOrderRepository.findAll();
 
-        return itemsOrder;
-    },
-    findItemOrderById(req: Request, res: Response) {
-        const { id } = req.params;
+    return itemsOrder;
+  },
+  findItemOrderById(req: Request) {
+    const { id } = req.params;
 
-        const order = ItemOrderRepository.findById(id);
-        if (!order)
-            throw new Error();
+    const order = ItemOrderRepository.findById(id);
+    if (!order) throw new Error();
 
-        return order;
-    },
-    async createItemOrder(req: Request, res: Response) {
-        const { order_id, product_id, price, quantity } = req.body;
+    return order;
+  },
+  async createItemOrder(req: Request) {
+    const { order_id, product_id, price, quantity } = req.body;
 
-        const order = ItemOrderRepository.create({ order_id, product_id, price, quantity })
+    const order = ItemOrderRepository.create({
+      order_id,
+      product_id,
+      price,
+      quantity,
+    });
 
-        return order;
-    },
-    async updateItemOrder(req: Request, res: Response) {
-        const { id } = req.params;
-        const { order_id, product_id, price, quantity } = req.body;
+    return order;
+  },
+  async updateItemOrder(req: Request) {
+    const { id } = req.params;
+    const { order_id, product_id, price, quantity } = req.body;
 
-        const order = await ItemOrderRepository.findById(id);
-        if (!order)
-            throw new Error();
+    const order = await ItemOrderRepository.findById(id);
+    if (!order) throw new Error();
 
-        await order.update({ order_id, product_id, price, quantity });
+    await order.update({ order_id, product_id, price, quantity });
 
-        return order;
-    },
-    async deleteItemOrder(req: Request, res: Response) {
-        const { id } = req.params;
+    return order;
+  },
+  async deleteItemOrder(req: Request) {
+    const { id } = req.params;
 
-        const order = await ItemOrderRepository.findById(id);
-        if (!order)
-            throw new Error();
+    const order = await ItemOrderRepository.findById(id);
+    if (!order) throw new Error();
 
-        await order.destroy();
+    await order.destroy();
 
-        return true;
-    }
+    return true;
+  },
 };
