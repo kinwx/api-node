@@ -17,6 +17,10 @@ export class CustomRepository<
         return await this.model.findByPk(id);
     }
 
+    async findByEmail(email: string) {
+        return await this.model.findOne({ where: { email } as any })
+    }
+
     async create(data: CreationAttributes<TModel>) {
         return await this.model.create(data);
     }

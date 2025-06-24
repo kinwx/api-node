@@ -6,6 +6,8 @@ import CategoryRoutes from "@src/routes/category";
 import ProductRoutes from "@src/routes/product";
 import ItemOrderRoutes from "@src/routes/itemOrder";
 import PaymentRoutes from "@src/routes/payment";
+import AuthRoutes from "@src/routes/auth";
+import authMiddleware from "./middleware/authMiddleware";
 
 const router = Router();
 
@@ -16,5 +18,6 @@ router.use("/categories", CategoryRoutes);
 router.use("/products", ProductRoutes);
 router.use("/items", ItemOrderRoutes);
 router.use("/payments", PaymentRoutes);
+router.use("/auth", AuthRoutes);
 
 export default router;
