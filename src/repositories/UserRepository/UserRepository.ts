@@ -9,6 +9,10 @@ export class UserRepository extends AbstractRepository<
     constructor() {
         super(User);
     }
+
+    async findByEmail(id: number | string) {
+        return this.model.findOne({ where: { id } })
+    }
 }
 
 export default new UserRepository();
