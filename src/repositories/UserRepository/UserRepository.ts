@@ -1,4 +1,14 @@
-import { CustomRepository } from "@src/helpers/CustomRepository";
-import User from "@src/models/User/User";
+import { AbstractRepository } from "@src/helpers/AbstractRepository";
+import User, { UserAttributes, UserCreationAttributes } from "@src/models/User/User";
 
-export default new CustomRepository(User);
+export class UserRepository extends AbstractRepository<
+    User,
+    UserAttributes,
+    UserCreationAttributes
+> {
+    constructor() {
+        super(User);
+    }
+}
+
+export default new UserRepository();

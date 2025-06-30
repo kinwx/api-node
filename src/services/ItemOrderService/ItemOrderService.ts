@@ -36,7 +36,7 @@ export default {
 
     await order.update({ order_id, product_id, price, quantity });
 
-    return order;
+    return order.reload();
   },
   async deleteItemOrder(req: Request) {
     const { id } = req.params;

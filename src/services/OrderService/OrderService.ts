@@ -31,7 +31,7 @@ export default {
 
     await order.update({ client_id, status });
 
-    return order;
+    return order.reload();
   },
   async deleteOrder(req: Request) {
     const { id } = req.params;

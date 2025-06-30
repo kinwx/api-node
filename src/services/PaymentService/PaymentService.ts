@@ -36,7 +36,7 @@ export default {
 
     await payment.update({ order_id, status_payment, type_payment, value });
 
-    return payment;
+    return payment.reload();
   },
   async deletePayment(req: Request) {
     const { id } = req.params;

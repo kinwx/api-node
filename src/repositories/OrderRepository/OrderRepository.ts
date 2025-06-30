@@ -1,4 +1,14 @@
-import { CustomRepository } from "@src/helpers/CustomRepository";
-import Order from "@src/models/Order/order";
+import { AbstractRepository } from "@src/helpers/AbstractRepository";
+import Order, { OrderAttributes, OrderCreationAttributes } from "@src/models/Order/order";
 
-export default new CustomRepository(Order);
+export class OrderRepository extends AbstractRepository<
+    Order,
+    OrderAttributes,
+    OrderCreationAttributes
+> {
+    constructor() {
+        super(Order);
+    }
+}
+
+export default new OrderRepository();

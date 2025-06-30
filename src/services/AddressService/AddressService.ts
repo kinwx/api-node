@@ -37,7 +37,7 @@ export default {
 
     await address.update({ client_id, city, street, state, postal_code });
 
-    return address;
+    return address.reload();
   },
   async deleteAddress(req: Request) {
     const { id } = req.params;

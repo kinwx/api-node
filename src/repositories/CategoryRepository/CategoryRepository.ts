@@ -1,4 +1,14 @@
-import { CustomRepository } from "@src/helpers/CustomRepository";
-import Category from "@src/models/Category/category";
+import { AbstractRepository } from "@src/helpers/AbstractRepository";
+import Category, { CategoryAttributes, CategoryCreationAttributes } from "@src/models/Category/category";
 
-export default new CustomRepository(Category);
+export class AddressRepository extends AbstractRepository<
+    Category,
+    CategoryAttributes,
+    CategoryCreationAttributes
+> {
+    constructor() {
+        super(Category);
+    }
+}
+
+export default new AddressRepository();

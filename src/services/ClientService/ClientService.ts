@@ -31,7 +31,7 @@ export default {
 
     await client.update({ name, email, phone });
 
-    return client;
+    return client.reload();
   },
   async deleteClient(req: Request) {
     const { id } = req.params;

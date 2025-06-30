@@ -1,4 +1,15 @@
-import { CustomRepository } from "@src/helpers/CustomRepository";
-import Address from "@src/models/Address/address";
+import { AbstractRepository } from "@src/helpers/AbstractRepository";
+import { Address, AddressAttributes, AddressCreationAttributes } from "@src/models/Address/address";
 
-export default new CustomRepository(Address); 
+export class AddressRepository extends AbstractRepository<
+    Address,
+    AddressAttributes,
+    AddressCreationAttributes
+> {
+    constructor() {
+        super(Address);
+    }
+}
+
+
+export default new AddressRepository(); 

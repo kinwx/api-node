@@ -31,7 +31,7 @@ export default {
 
     await category.update({ name });
 
-    return category;
+    return category.reload();
   },
   async deleteCategory(req: Request) {
     const { id } = req.params;

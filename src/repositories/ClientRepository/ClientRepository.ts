@@ -1,4 +1,14 @@
-import { CustomRepository } from "@src/helpers/CustomRepository";
-import Client from "@src/models/Client/client";
+import { AbstractRepository } from "@src/helpers/AbstractRepository";
+import Client, { ClientAttributes, ClientCreationAttributes } from "@src/models/Client/client";
 
-export default new CustomRepository(Client);
+export class ClientRepository extends AbstractRepository<
+    Client,
+    ClientAttributes,
+    ClientCreationAttributes
+> {
+    constructor() {
+        super(Client);
+    }
+}
+
+export default new ClientRepository();

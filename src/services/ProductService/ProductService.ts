@@ -36,7 +36,7 @@ export default {
 
     await product.update({ name, price, storage, category_id });
 
-    return product;
+    return product.reload();
   },
   async deleteProduct(req: Request) {
     const { id } = req.params;
