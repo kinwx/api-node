@@ -2,15 +2,13 @@ import AddressRepository from "@src/repositories/AddressRepository/AddressReposi
 import { Request } from "express";
 
 export default {
-  findAll() {
-    const addresses = AddressRepository.findAll();
-
-    return addresses;
+  async findAll() {
+    return await AddressRepository.findAll();
   },
-  findAddressById(req: Request) {
+  async findAddressById(req: Request) {
     const { id } = req.params;
 
-    const address = AddressRepository.findById(id);
+    const address = await AddressRepository.findById(id);
     if (!address) throw new Error();
 
     return address;
@@ -18,7 +16,7 @@ export default {
   async createAddress(req: Request) {
     const { client_id, city, street, state, postal_code } = req.body;
 
-    const address = AddressRepository.create({
+    const address = await AddressRepository.create({
       client_id,
       city,
       street,

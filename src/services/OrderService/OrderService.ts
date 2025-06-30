@@ -2,15 +2,13 @@ import OrderRepository from "@src/repositories/OrderRepository/OrderRepository";
 import { Request } from "express";
 
 export default {
-  findAll() {
-    const orders = OrderRepository.findAll();
-
-    return orders;
+  async findAll() {
+    return await OrderRepository.findAll();
   },
-  findOrderById(req: Request) {
+  async findOrderById(req: Request) {
     const { id } = req.params;
 
-    const order = OrderRepository.findById(id);
+    const order = await OrderRepository.findById(id);
     if (!order) throw new Error();
 
     return order;
@@ -18,7 +16,7 @@ export default {
   async createOrder(req: Request) {
     const { client_id, status } = req.body;
 
-    const order = OrderRepository.create({ client_id, status });
+    const order = await OrderRepository.create({ client_id, status });
 
     return order;
   },

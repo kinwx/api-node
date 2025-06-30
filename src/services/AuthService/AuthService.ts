@@ -8,9 +8,9 @@ export default {
         const { name, email, password } = req.body;
 
         const hash = await bcrypt.hash(password, 10)
-        await UserRepository.create({ name, email, password: hash })
+        const user = await UserRepository.create({ name, email, password: hash })
 
-        return true;
+        return user;
     },
     async login(req: Request) {
         const { email, password } = req.body;

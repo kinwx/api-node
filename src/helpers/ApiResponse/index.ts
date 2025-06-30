@@ -12,7 +12,7 @@ export class ApiResponse {
         this.defaultStatus = status;
     }
 
-    success<T = any>(data: T, message = "Sucesso", status?: number): Response {
+    success<T = any>(data: T, message = "Sucesso", status?: number): Response<any> {
         return this.res.status(status ?? this.defaultStatus ?? 200).json({
             status: true,
             message,
@@ -20,7 +20,7 @@ export class ApiResponse {
         });
     }
 
-    error(message: string | Error = "Erro", status?: number): Response {
+    error(message: string | Error = "Erro", status?: number): Response<any> {
         const msg = typeof message === "string" ? message : message.message;
         return this.res.status(status ?? this.defaultStatus ?? 500).json({
             status: false,
