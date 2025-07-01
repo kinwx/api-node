@@ -4,8 +4,7 @@ import jwt from "jsonwebtoken";
 import jwtConfig from "@src/config/jwt";
 
 export class ApiResponse {
-    constructor(private res: Response, private defaultStatus?: number) {
-    }
+    constructor(private res: Response, private defaultStatus?: number) { }
 
     success<T = any>(data: T, message = "Sucesso", status?: number): any {
         return this.res.status(status ?? this.defaultStatus ?? 200).json({

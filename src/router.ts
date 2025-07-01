@@ -7,7 +7,6 @@ import ProductRoutes from "@src/routes/product";
 import ItemOrderRoutes from "@src/routes/itemOrder";
 import PaymentRoutes from "@src/routes/payment";
 import AuthRoutes from "@src/routes/auth";
-import authMiddleware from "./middleware/authMiddleware";
 
 const router = Router();
 

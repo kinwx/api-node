@@ -1,10 +1,10 @@
 import dotenv from "dotenv";
-import { PrivateKey, Secret } from "jsonwebtoken";
+import { Secret } from "jsonwebtoken";
 
 dotenv.config()
 
 interface ENVInterface {
-    secret: PrivateKey,
+    secret: Secret,
     expiresIn: any
 }
 
