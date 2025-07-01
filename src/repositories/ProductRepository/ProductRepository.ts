@@ -1,4 +1,17 @@
-import { CustomRepository } from "../../helpers/CustomRepository/index.js";
-import Product from "../../models/Product/product.js";
+import { AbstractRepository } from "../../helpers/AbstractRepository/index.js";
+import Product, {
+  ProductAttributes,
+  ProductCreationAttributes,
+} from "../../models/Product/product.js";
 
-export default new CustomRepository(Product);
+export class ProductRepository extends AbstractRepository<
+  Product,
+  ProductAttributes,
+  ProductCreationAttributes
+> {
+  constructor() {
+    super(Product);
+  }
+}
+
+export default new ProductRepository();

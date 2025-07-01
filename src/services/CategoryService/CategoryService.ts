@@ -2,15 +2,13 @@ import CategoryRepository from "../../repositories/CategoryRepository/CategoryRe
 import { Request } from "express";
 
 export default {
-  findAll() {
-    const categories = CategoryRepository.findAll();
-
-    return categories;
+  async findAll() {
+    return await CategoryRepository.findAll();
   },
-  findCategoryById(req: Request) {
+  async findCategoryById(req: Request) {
     const { id } = req.params;
 
-    const category = CategoryRepository.findById(id);
+    const category = await CategoryRepository.findById(id);
     if (!category) throw new Error();
 
     return category;
@@ -18,7 +16,7 @@ export default {
   async createCategory(req: Request) {
     const { name } = req.body;
 
-    const category = CategoryRepository.create({ name });
+    const category = await CategoryRepository.create({ name });
 
     return category;
   },
@@ -31,7 +29,7 @@ export default {
 
     await category.update({ name });
 
-    return category;
+    return category.reload();
   },
   async deleteCategory(req: Request) {
     const { id } = req.params;

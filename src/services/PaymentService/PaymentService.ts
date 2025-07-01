@@ -2,15 +2,13 @@ import PaymentRepository from "../../repositories/PaymentRepository/PaymentRepos
 import { Request } from "express";
 
 export default {
-  findAll() {
-    const payments = PaymentRepository.findAll();
-
-    return payments;
+  async findAll() {
+    return await PaymentRepository.findAll();
   },
-  findPaymentById(req: Request) {
+  async findPaymentById(req: Request) {
     const { id } = req.params;
 
-    const payment = PaymentRepository.findById(id);
+    const payment = await PaymentRepository.findById(id);
     if (!payment) throw new Error();
 
     return payment;
@@ -18,7 +16,7 @@ export default {
   async createPayment(req: Request) {
     const { order_id, status_payment, type_payment, value } = req.body;
 
-    const payment = PaymentRepository.create({
+    const payment = await PaymentRepository.create({
       order_id,
       status_payment,
       type_payment,
@@ -36,7 +34,7 @@ export default {
 
     await payment.update({ order_id, status_payment, type_payment, value });
 
-    return payment;
+    return payment.reload();
   },
   async deletePayment(req: Request) {
     const { id } = req.params;

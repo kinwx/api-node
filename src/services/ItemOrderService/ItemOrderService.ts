@@ -2,15 +2,13 @@ import ItemOrderRepository from "../../repositories/ItemOrderRepository/ItemOrde
 import { Request } from "express";
 
 export default {
-  findAll() {
-    const itemsOrder = ItemOrderRepository.findAll();
-
-    return itemsOrder;
+  async findAll() {
+    return await ItemOrderRepository.findAll();
   },
-  findItemOrderById(req: Request) {
+  async findItemOrderById(req: Request) {
     const { id } = req.params;
 
-    const order = ItemOrderRepository.findById(id);
+    const order = await ItemOrderRepository.findById(id);
     if (!order) throw new Error();
 
     return order;
@@ -18,7 +16,7 @@ export default {
   async createItemOrder(req: Request) {
     const { order_id, product_id, price, quantity } = req.body;
 
-    const order = ItemOrderRepository.create({
+    const order = await ItemOrderRepository.create({
       order_id,
       product_id,
       price,
@@ -36,7 +34,7 @@ export default {
 
     await order.update({ order_id, product_id, price, quantity });
 
-    return order;
+    return order.reload();
   },
   async deleteItemOrder(req: Request) {
     const { id } = req.params;

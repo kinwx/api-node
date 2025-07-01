@@ -2,15 +2,13 @@ import ClientRepository from "../../repositories/ClientRepository/ClientReposito
 import { Request } from "express";
 
 export default {
-  findAll() {
-    const clients = ClientRepository.findAll();
-
-    return clients;
+  async findAll() {
+    return await ClientRepository.findAll();
   },
-  findClientById(req: Request) {
+  async findClientById(req: Request) {
     const { id } = req.params;
 
-    const client = ClientRepository.findById(id);
+    const client = await ClientRepository.findById(id);
     if (!client) throw new Error();
 
     return client;
@@ -18,7 +16,7 @@ export default {
   async createClient(req: Request) {
     const { name, email, phone } = req.body;
 
-    const client = ClientRepository.create({ name, email, phone });
+    const client = await ClientRepository.create({ name, email, phone });
 
     return client;
   },
@@ -31,7 +29,7 @@ export default {
 
     await client.update({ name, email, phone });
 
-    return client;
+    return client.reload();
   },
   async deleteClient(req: Request) {
     const { id } = req.params;

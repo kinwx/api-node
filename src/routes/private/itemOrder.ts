@@ -1,7 +1,10 @@
 import ItemOrderController from "../../controllers/ItemOrderController/ItemOrderController.js";
+import authMiddleware from "../../middleware/authMiddleware.js";
 import { Router } from "express";
 
 const router = Router();
+
+router.use(authMiddleware);
 
 router.get("/", ItemOrderController.index);
 router.get("/:id", ItemOrderController.show);

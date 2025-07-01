@@ -1,4 +1,17 @@
-import { CustomRepository } from "../../helpers/CustomRepository/index.js";
-import Order from "../../models/Order/order.js";
+import { AbstractRepository } from "../../helpers/AbstractRepository/index.js";
+import Order, {
+  OrderAttributes,
+  OrderCreationAttributes,
+} from "../../models/Order/order.js";
 
-export default new CustomRepository(Order);
+export class OrderRepository extends AbstractRepository<
+  Order,
+  OrderAttributes,
+  OrderCreationAttributes
+> {
+  constructor() {
+    super(Order);
+  }
+}
+
+export default new OrderRepository();

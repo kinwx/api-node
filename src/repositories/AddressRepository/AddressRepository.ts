@@ -1,4 +1,18 @@
-import { CustomRepository } from "../../helpers/CustomRepository/index.js";
-import Address from "../../models/Address/address.js";
+import { AbstractRepository } from "../../helpers/AbstractRepository/index.js";
+import {
+  Address,
+  AddressAttributes,
+  AddressCreationAttributes,
+} from "../../models/Address/address.js";
 
-export default new CustomRepository(Address);
+export class AddressRepository extends AbstractRepository<
+  Address,
+  AddressAttributes,
+  AddressCreationAttributes
+> {
+  constructor() {
+    super(Address);
+  }
+}
+
+export default new AddressRepository();

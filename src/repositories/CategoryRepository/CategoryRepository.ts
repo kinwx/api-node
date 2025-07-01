@@ -1,4 +1,17 @@
-import { CustomRepository } from "../../helpers/CustomRepository/index.js";
-import Category from "../../models/Category/category.js";
+import { AbstractRepository } from "../../helpers/AbstractRepository/index.js";
+import Category, {
+  CategoryAttributes,
+  CategoryCreationAttributes,
+} from "../../models/Category/category.js";
 
-export default new CustomRepository(Category);
+export class AddressRepository extends AbstractRepository<
+  Category,
+  CategoryAttributes,
+  CategoryCreationAttributes
+> {
+  constructor() {
+    super(Category);
+  }
+}
+
+export default new AddressRepository();
