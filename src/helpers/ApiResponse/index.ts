@@ -4,15 +4,10 @@ import jwt from "jsonwebtoken";
 import jwtConfig from "@src/config/jwt";
 
 export class ApiResponse {
-    private res: Response;
-    private defaultStatus?: number;
-
-    constructor(res: Response, status?: number) {
-        this.res = res;
-        this.defaultStatus = status;
+    constructor(private res: Response, private defaultStatus?: number) {
     }
 
-    success<T = any>(data: T, message = "Sucesso", status?: number): Response<any> {
+    success<T = any>(data: T, message = "Sucesso", status?: number): any {
         return this.res.status(status ?? this.defaultStatus ?? 200).json({
             status: true,
             message,
@@ -20,7 +15,7 @@ export class ApiResponse {
         });
     }
 
-    error(message: string | Error = "Erro", status?: number): Response<any> {
+    error(message: string | Error = "Erro", status?: number): any {
         const msg = typeof message === "string" ? message : message.message;
         return this.res.status(status ?? this.defaultStatus ?? 500).json({
             status: false,
