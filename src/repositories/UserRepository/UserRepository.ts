@@ -13,8 +13,8 @@ export class UserRepository extends AbstractRepository<
     super(User);
   }
 
-  async findByEmail(id: number | string) {
-    return this.model.findOne({ where: { id } });
+  async findByEmail(email: string) {
+    return this.model.findOne({ where: { email } });
   }
 }
 
